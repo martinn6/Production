@@ -26,13 +26,13 @@ app.get('/getpost',function(req,res){
 });
 
 app.post('/getpost', function(req,res){
-  var qParams = [];
-  for (var p in req.body){
-    qParams.push({'name':p,'value':req.body[p]})
+  var pArray = [];
+  for (var p in req.query){
+    pArray.push({'name':p,'value':req.query[p]})
   }
-  var context = {};
-  context.dataList = qParams;
-  res.render('postresponse', context);
+  var toPass = {};
+  toPass.params = pArray;
+  res.render('getresponse', toPass);
 });
 
 app.get('/other-page',function(req,res){
