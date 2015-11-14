@@ -1,6 +1,9 @@
 <h1>You sent the following data in a GET request:</h1>
-<ul>
-  {{#each dataList}}
-    <li>{{this.name}}: {{this.value}}
-  {{/each}}
-</ul>
+<table>
+	{{#each params}}
+		<tr>
+			<td>{{this.name}}</td>
+		    <td>{{this.value}}</td>
+		</tr>
+	{{/each}}
+</table>
