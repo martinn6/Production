@@ -18,7 +18,7 @@ app.get('/',function(req,res){
 app.get('/getpost',function(req,res){
   var pArray = [];
   for (var p in req.query){
-    pArray.push({'name':p,'value':req.query[p]})
+    pArray.push({'name':p,'value':req.query[p]});
   }
   var toPass = {};
   toPass.params = pArray;
@@ -28,8 +28,9 @@ app.get('/getpost',function(req,res){
 app.post('/getpost', function(req,res){
   var pArray = [];
   for (var p in req.query){
-    pArray.push({'name':p,'value':req.query[p]})
+    pArray.push({'name':p,'value':req.query[p]});
   }
+  console.log(pArray);
   var toPass = {};
   toPass.params = pArray;
   res.render('postresponse', toPass);
