@@ -15,28 +15,10 @@ app.get('/',function(req,res){
   res.render('home')
 });
 
-app.get('/show-data',function(req,res){
-  var context = {};
-  context.sentData = req.query.myData;
-  res.render('show-data', context);
-});
-
-app.get('/get-loopback',function(req,res){
-  var qParams = "";
-  for (var p in req.query){
-    qParams += "The name " + p + " contains the value " + req.query[p] + ", ";
-  }
-  qParams = qParams.substring(0,qParams.lastIndexOf(','));
-  qParams += '.';
-  var context = {};
-  context.dataList = qParams;
-  res.render('get-loopback', context);
-});
-
 app.get('/getpost',function(req,res){
-  var qParams = [];
+  var pArray = [];
   for (var p in req.query){
-    qParams.push({'name':p,'value':req.query[p]})
+    pArray.push({'name':p,'value':req.query[p]})
   }
   var context = {};
   context.dataList = qParams;
@@ -48,8 +30,6 @@ app.post('/getpost', function(req,res){
   for (var p in req.body){
     qParams.push({'name':p,'value':req.body[p]})
   }
-  console.log(qParams);
-  console.log(req.body);
   var context = {};
   context.dataList = qParams;
   res.render('postresponse', context);
