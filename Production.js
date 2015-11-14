@@ -21,7 +21,7 @@ app.get('/getpost',function(req,res){
     pArray.push({'name':p,'value':req.query[p]})
   }
   var toPass = {};
-  toPass.items = qParams;
+  toPass.items = pArray;
   res.render('getresponse', toPass);
 });
 
