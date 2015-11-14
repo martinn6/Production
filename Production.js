@@ -20,9 +20,9 @@ app.get('/getpost',function(req,res){
   for (var p in req.query){
     pArray.push({'name':p,'value':req.query[p]})
   }
-  var context = {};
-  context.dataList = qParams;
-  res.render('getresponse', context);
+  var toPass = {};
+  toPass.items = qParams;
+  res.render('getresponse', toPass);
 });
 
 app.post('/getpost', function(req,res){
