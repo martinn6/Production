@@ -32,7 +32,7 @@ app.post('/getpost', function(req,res){
   }
   var toPass = {};
   toPass.params = pArray;
-  res.render('getresponse', toPass);
+  res.render('postresponse', toPass);
 });
 
 app.get('/other-page',function(req,res){
