@@ -21,8 +21,8 @@ app.get('/other-page',function(req,res){
 
 app.get('/getpost',function(req,res){
   var pArray = [];
-  for (var p in req.body){
-    pArray.push({'name':p,'value':req.body[p]});
+  for (var p in req.query){
+    pArray.push({'name':p,'value':req.query[p]});
   }
   var toPass = {};
   toPass.params = pArray;
