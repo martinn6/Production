@@ -11,8 +11,18 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
+function getRandomNum() {
+	var stuff = {};
+	stuff.randomNum = Math.floor((Math.random() * 10) + 1);
+	return stuff;
+}
+
 app.get('/',function(req,res){
-  res.render('home')
+  res.render('home',getRandomNum())
+});
+
+app.get('/randomnum',function(req,res){
+  res.render('randomnum');
 });
 
 app.get('/other-page',function(req,res){
