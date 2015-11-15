@@ -18,11 +18,11 @@ function getRandomNum() {
 }
 
 app.get('/',function(req,res){
-  res.render('home',getRandomNum())
+  res.render('home')
 });
 
 app.get('/randomnum',function(req,res){
-  res.render('randomnum');
+  res.render('randomnum', getRandomNum());
 });
 
 app.get('/other-page',function(req,res){
