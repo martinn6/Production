@@ -29,6 +29,7 @@ app.post('/getpost', function(req,res){
   var pArray = [];
   for (var p in req.query){
     pArray.push({'name':p,'value':req.query[p]});
+	console.log(p);
   }
   console.log(pArray);
   var toPass = {};
