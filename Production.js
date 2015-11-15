@@ -31,8 +31,8 @@ app.get('/getpost',function(req,res){
 
 app.post('/getpost', function(req,res){
   var postArray = [];
-  for (var p in req.query){
-    postArray.push({'name':p,'value':req.query[p]});
+  for (var p in req.body){
+    postArray.push({'name':p,'value':req.body[p]});
 	console.log(p);
   }
   console.log("POST");
