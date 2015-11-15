@@ -26,15 +26,15 @@ app.get('/getpost',function(req,res){
 });
 
 app.post('/getpost', function(req,res){
-  var pArray = [];
+  var postArray = [];
   for (var p in req.query){
-    pArray.push({'name':p,'value':req.query[p]});
+    postArray.push({'name':p,'value':req.query[p]});
 	console.log(p);
   }
   console.log("POST");
-  console.log(pArray);
+  console.log(postArray);
   var toPass = {};
-  toPass.params = pArray;
+  toPass.params = postArray;
   res.render('postresponse', toPass);
 });
 
