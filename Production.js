@@ -31,6 +31,7 @@ app.post('/getpost', function(req,res){
     pArray.push({'name':p,'value':req.query[p]});
 	console.log(p);
   }
+  console.log("POST");
   console.log(pArray);
   var toPass = {};
   toPass.params = pArray;
