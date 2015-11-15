@@ -4,15 +4,19 @@ var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
 app.get('/',function(req,res){
   res.render('home')
+});
+
+app.get('/other-page',function(req,res){
+  res.render('other-page');
 });
 
 app.get('/getpost',function(req,res){
@@ -36,10 +40,6 @@ app.post('/getpost', function(req,res){
   var toPass = {};
   toPass.params = postArray;
   res.render('postresponse', toPass);
-});
-
-app.get('/other-page',function(req,res){
-  res.render('other-page');
 });
 
 app.use(function(req,res){
