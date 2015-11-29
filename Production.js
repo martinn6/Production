@@ -25,6 +25,10 @@ app.get('/randomnum',function(req,res){
   res.render('randomnum', getRandomNum());
 });
 
+app.get('/apihowto',function(req,res){
+  res.render('apihowto', getRandomNum());
+});
+
 app.get('/other-page',function(req,res){
   res.render('other-page');
 });
