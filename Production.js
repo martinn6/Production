@@ -19,7 +19,7 @@ function getRandomNum() {
 
 // will match request to the root
 app.get('/images/', function (req, res) {
-  res.send('images');
+  res.send('/images/');
 });
 
 app.get('/',function(req,res){
