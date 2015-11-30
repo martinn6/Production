@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
-var png = require('./images')'
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
