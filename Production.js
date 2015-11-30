@@ -34,7 +34,6 @@ app.get('/apihowto',function(req,res){
 app.get('/getownedgames',function(req,res)
 {
 	console.log("getownedgames");
-	response = [];
 	
 	//if(req.body['formSubmit']){
 
@@ -47,9 +46,9 @@ app.get('/getownedgames',function(req,res)
 		reqAppInfo.addEventListener('load',function()
 		{
 			console.log(reqAppInfo.responseText);
-			response = reqAppInfo.responseText
+			var response = JSON.parse(reqWeather.responseText);
 			for (var p in response){
-					console.log(response[p]);
+					console.log(p);
 			}
 		});
 		
