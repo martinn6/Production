@@ -34,7 +34,7 @@ app.get('/apihowto',function(req,res){
 app.get('/getownedgames',function(req,res)
 {
 	console.log("getownedgames");
-	req.games = [];
+	response = [];
 	
 	//if(req.body['formSubmit']){
 
@@ -47,8 +47,9 @@ app.get('/getownedgames',function(req,res)
 		reqAppInfo.addEventListener('load',function()
 		{
 			console.log(reqAppInfo.responseText);
-			for (var p in reqAppInfo.responseText){
-					console.log(reqAppInfo.responseText[p]);
+			response = reqAppInfo.responseText
+			for (var p in response){
+					console.log(response[p]);
 			}
 		});
 		
