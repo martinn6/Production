@@ -61,7 +61,7 @@ app.get('/getownedgames',function(req,res)
 		reqAppInfo.send();
 		
 	//}
-	context.numberofgames = gameCount || [];
+	context.numberofgames = gameCount || 0;
 	context.games = response.games || [];
 	console.log(context.games);
 
