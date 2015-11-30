@@ -53,9 +53,10 @@ app.get('/getownedgames',function(req,res,next){
 });
 */
 
-app.get('/getownedgames',function(req,res,next){
+app.get('/getownedgames',function(req,res){
   var context = {};
   var body = {};
+  console.log(req);
   
   res.render('getownedgames');
    
