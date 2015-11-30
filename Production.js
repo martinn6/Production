@@ -50,9 +50,11 @@ app.get('/getownedgames',function(req,res)
 		{
 			console.log("Response Loaded");
 			console.log(reqAppInfo.responseText);
+			console.log("Message=" + response.message);
 			var response = JSON.parse(reqAppInfo.responseText);
-			//gameCount = response[0].game_count; //does not work
-			console.log("Game Count:" + gameCount);
+			gameCount = response.game_count; 
+			console.log("gameCount");
+			console.log(gameCount);
 			console.log(response);
 		});
 		
