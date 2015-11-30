@@ -34,6 +34,10 @@ app.get('/other-page',function(req,res){
   res.render('other-page');
 });
 
+app.get('/getownedgames',function(req,res){
+  res.render('getownedgames');
+});
+
 app.get('/getpost',function(req,res){
   var pArray = [];
   for (var p in req.query){
