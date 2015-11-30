@@ -31,7 +31,7 @@ app.get('/apihowto',function(req,res){
   res.render('apihowto');
 });
 
-app.get('/getownedgames',function(req,res)
+app.post('/getownedgames',function(req,res)
 {
 	console.log("getownedgames");
 	
