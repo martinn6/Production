@@ -70,7 +70,43 @@ The main page for Steam's APIs can be found here:
 </section>
 
 <section id="GetOwnedGames">
-	<h2>GetOwnedGames API.</h2>
+	<h2>GetOwnedGames API</h2>
+	Utilizing what we have gathered so far, we will be able to test out the GetOwnedGames API:
+	<ul>
+	<li>API Key</li>
+	<li>Steam UserId</li>
+	</ul>
+	If you dont have these yet, refer to the previous sections.<BR>
+	<div>
+		To use the GetOwnedGames api, all you have to do is submit a get request to the API's URL with the appropriate 
+		arguments. The Arguments are as follows:
+		<h3>Arguments</h3>
+		<ul>
+		<li>steamid:  The SteamID of the account. </li>
+
+		<li>include_appinfo  Include game name and logo information in the output. 
+		The default is to return appids only. </li>
+
+		<li>include_played_free_games  By default, free games like Team Fortress 2 are excluded (as 
+			technically everyone owns them). If include_played_free_games is set, they will be returned 
+			if the player has played them at some point. This is the same behavior as the games list on 
+			the Steam Community. </li>
+
+		<li>format  Output format. json (default), xml or vdf. </li>
+
+		<li>appids_filter  You can optionally filter the list to a set of appids. Note that these 
+		cannot be passed as a URL parameter, instead you must use the JSON format described in 
+		Steam_Web_API#Calling_Service_interfaces. The expected input is an array of integers 
+		(in JSON: "appids_filter: [ 440, 500, 550 ]" ) </li>
+		</ul>
+
+		An example that I would use for my login to return a jason object would be: 
+		http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json
+		
+		
+		
+		
+	</div
 	
 	
 		
