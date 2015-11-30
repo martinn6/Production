@@ -47,7 +47,7 @@ app.get('/getownedgames',function(req,res)
 		{
 			console.log(reqAppInfo.responseText);
 			var response = JSON.parse(reqAppInfo.responseText);
-			for (var p in response){
+			for (var p in response.games){
 					console.log(p);
 			}
 		});
