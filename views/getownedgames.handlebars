@@ -15,7 +15,7 @@
 <BR>
 <h3>List of Games:</h3>
 	{{#each games}}
-	<div>Name: {{this.name}}; ID: {{this.appid}}</div>
+	<div>{{#if this.name}}Name: {{this.name}};{{/if}} ID: {{this.appid}}</div>
 	{{/each}}
 {{/if}}
 
