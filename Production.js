@@ -68,14 +68,14 @@ app.post('/getownedgames',function(req,res,next){
   var showGameInfo;
   console.log("POST");
   console.log(req.body);
-  var yourAPIKey = req.body.yourAPIKey;
-  var valveUserID = req.body.valveUserID;
+  context.yourAPIKey = req.body.yourAPIKey;
+  context.valveUserID = req.body.valveUserID;
   if(req.body['showGameInfo'])
 	  showGameInfo = 1;
   else
 	showGameInfo = 0;
   console.log("showGameInfo=" + showGameInfo);
-  request('http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1', function(err, response, body){
+  request('http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=' + showGameInfo, function(err, response, body){
     if(!err && response.statusCode < 400){
 	  body = JSON.parse(body);
 	  context.numberofgames = body.response.game_count;
