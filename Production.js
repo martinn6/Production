@@ -61,7 +61,7 @@ app.get('/getownedgames',function(req,res)
 		
 	//}
 
-	res.render('getownedgames', games);
+	res.render('getownedgames', response);
 });
 
 
