@@ -52,17 +52,16 @@ app.get('/getownedgames',function(req,res)
 			responseText = JSON.parse(reqAppInfo.responseText);
 			response = responseText.response;
 			console.log("Response Loaded");
-			console.log(reqAppInfo.responseText);
 			gameCount = response.game_count; 
 			console.log("gameCount: " + gameCount);
-			console.log(response.games);
+			games = response.games
 		});
 		
 		reqAppInfo.send(null);
 		
 	//}
 
-	res.render('getownedgames', response);
+	res.render('getownedgames', games);
 });
 
 
