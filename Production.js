@@ -19,10 +19,6 @@ function getRandomNum() {
 	return stuff;
 }
 
-// will match request to the root
-app.get(/images/, function (req, res) {
-  res.send('/images/');
-});
 
 app.get('/',function(req,res){
   res.render('home')
