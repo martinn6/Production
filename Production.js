@@ -48,7 +48,7 @@ app.get('/getownedgames',function(req,res)
 		var reqAppInfo = new XMLHttpRequest();
 		reqAppInfo.open('GET', 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1');
 	
-		reqAppInfo.addEventListener('load', function.bind()
+		reqAppInfo.addEventListener('load', function()
 		{
 			responseText = JSON.parse(reqAppInfo.responseText);
 			response = responseText.response;
