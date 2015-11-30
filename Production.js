@@ -45,7 +45,7 @@ app.get('/getownedgames',function(req,res)
 	
 		reqAppInfo.addEventListener('load',function()
 		{
-			console.log("loaded");
+			console.log(reqAppInfo.responseText);
 		});
 		
 		reqAppInfo.send(null);
