@@ -35,6 +35,7 @@ app.get('/getownedgames',function(req,res)
 	console.log("getownedgames");
 	if(req.body['formSubmit']){
 		//get city name
+		console.log("formSubmit");
 		var cityName = req.body.city;
 		console.log("cityName= " + cityName);
 		//sumit to get weather
