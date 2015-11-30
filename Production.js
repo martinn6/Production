@@ -34,7 +34,6 @@ app.get('/apihowto',function(req,res){
 app.get('/getownedgames',function(req,res)
 {
 	console.log("getownedgames");
-	var response = [];
 	var gameCount;
 	var games = [];
 	
@@ -50,7 +49,7 @@ app.get('/getownedgames',function(req,res)
 		{
 			console.log("Response Loaded");
 			console.log(reqAppInfo.responseText);
-			response = JSON.parse(reqAppInfo.responseText);
+			var response = JSON.parse(reqAppInfo.responseText);
 			//gameCount = response[0].game_count; //does not work
 			console.log("Game Count:" + gameCount);
 			console.log(response);

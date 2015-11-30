@@ -11,5 +11,7 @@
 </form>
 {{#if response}}
 	The response from the server was: <BR>
-		{{response}}
+	 {{#each toDo}}
+		{{this.games.name}}
+	  {{/each}}
 {{/if}}
