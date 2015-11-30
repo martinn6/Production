@@ -18,8 +18,6 @@ function getRandomNum() {
 	return stuff;
 }
 
-
-
 app.get('/',function(req,res){
   res.render('home')
 });
@@ -34,6 +32,7 @@ app.get('/apihowto',function(req,res){
 
 app.get('/getownedgames',function(req,res)
 {
+	console.log("getownedgames");
 	if(req.body['formSubmit']){
 		//get city name
 		var cityName = req.body.city;
