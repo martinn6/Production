@@ -47,7 +47,7 @@ app.get('/getownedgames',function(req,res)
 		{
 			console.log("Response Loaded");
 			var response = JSON.parse(reqAppInfo.responseText);
-			console.log(response);
+			console.log(response.games);
 		});
 		
 		reqAppInfo.send(null);
