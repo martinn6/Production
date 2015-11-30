@@ -28,52 +28,31 @@ app.get('/randomnum',function(req,res){
 });
 
 app.get('/apihowto',function(req,res){
-  res.render('apihowto', getRandomNum());
+  res.render('apihowto');
 });
 
 app.get('/getownedgames',function(req,res)
 {
 	console.log("getownedgames");
 	
-	document.getElementById('formSubmit').addEventListener('click', function(event){
-		console.log("IT WORKED!");
-		/*
-		var req = new XMLHttpRequest();
-		var payload = {yourName:null, species:null, eatsCats:null};
-		
-		payload.yourName = document.getElementById('yourName').value;
-		for (var i = 0; i < radios.length; i++)
-		{
-			if(radios[i].checked)
-				payload.species = radios[i].value;
-		}
-		
-		payload.eatsCats = document.getElementById('eatCats').checked;
-			
-		req.open('GET', 'http://httpbin.org/post', true);
-		
-		req.addEventListener('load',function(){
-		if(req.status >= 200 && req.status < 400)
-		{
-			var response = JSON.parse(req.responseText);
-			console.log("Message=" + response.message);
-			document.getElementById('returnCode').textContent = req.responseText;
-			document.getElementById('returnName').textContent = response.json.yourName;
-			document.getElementById('returnSpecies').textContent = response.json.species;
-			if(response.json.eatsCats == true)
-				document.getElementById('returnEatCats').textContent = "Yes";
-			else
-				document.getElementById('returnEatCats').textContent = "No";
-		} else {
-				console.log("Error in network request: " + request.statusText);
-			}
-		});
-		req.send(JSON.stringify(payload));
-		event.preventDefault();
-		*/
-	});
+	if(req.body['formSubmit']){
 
-	res.render('getownedgames', getRandomNum());
+		console.log("formSubmit");
+
+		/*
+		var reqAppInfo = new XMLHttpRequest();
+		reqAppInfo.open('GET', 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1');
+	
+		reqAppInfo.addEventListener('load',function()
+		{
+			console.log("loaded");
+		});
+		
+		reqAppInfo.send(null);
+		*/
+	}
+
+	res.render('getownedgames');
 });
 
 
