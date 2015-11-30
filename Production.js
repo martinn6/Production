@@ -39,8 +39,15 @@ app.get('/getownedgames',function(req,res)
 		var cityName = req.body.city;
 		console.log("cityName= " + cityName);
 		//sumit to get weather
-		var reqWeather = new XMLHttpRequest();
-		reqWeather.open('GET', 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1');
+		var reqAppInfo = new XMLHttpRequest();
+		reqAppInfo.open('GET', 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1');
+	
+	
+		reqAppInfo.addEventListener('load',function()
+		{
+			console.log("reqWeather");
+			console.log("Temp2= ", tempMain);
+		});
 	}
 	res.render('getownedgames', getRandomNum());
 });
