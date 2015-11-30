@@ -38,6 +38,7 @@ app.get('/getownedgames',function(req,res){
   console.log(req.query);
   context.yourAPIKey = req.query.yourAPIKey;
   context.valveUserID = req.query.valveUserID;
+  context.showGameInfo = req.query.showGameInfo;
   res.render('getownedgames', context);
    
 });
@@ -53,7 +54,7 @@ app.post('/getownedgames',function(req,res,next){
   if(req.body['showGameInfo'])
   {
 	  showGameInfo = 1;
-	  context.showGameInfo = "checked";
+	  context.showGameInfo = "checked='true'";
   }
   else
   {
