@@ -6,9 +6,8 @@ var bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static('public'));
-app.use(express.static('images'));
 app.use('/images', express.static('images'));
+app.use('/images', express.static(__dirname + '/images'));
 
 
 app.engine('handlebars', handlebars.engine);
