@@ -10,6 +10,11 @@
 	</fieldset>
 </form>
 <BR>
+{{#if toDo}}
 Number of Games: {{numberofgames}}<BR>
-Response: {{response}}
+List of Games:<BR>
+	{{#each toDo}}
+	Name:{{this.name}}<BR>
+	{{/each}}
+{{/if}}
 

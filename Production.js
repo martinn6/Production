@@ -41,7 +41,7 @@ app.get('/getownedgames',function(req,res,next){
     if(!err && response.statusCode < 400){
 	  body = JSON.parse(body);
 	  context.numberofgames = body.response.game_count;
-      context.response = body.response;
+      context.games = body.response.games;
       res.render('getownedgames',context);
     } else {
       if(response){
