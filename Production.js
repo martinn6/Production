@@ -61,7 +61,9 @@ app.get('/getownedgames',function(req,res)
 		reqAppInfo.send(null);
 		
 	//}
+	context.name = "THIS IS CONTEXT NAME!";
 	context.games = response.games || [];
+	console.log(context.games);
 	res.render('getownedgames',context);
 });
 
