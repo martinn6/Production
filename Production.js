@@ -18,6 +18,8 @@ function getRandomNum() {
 	return stuff;
 }
 
+
+
 app.get('/',function(req,res){
   res.render('home')
 });
@@ -29,6 +31,21 @@ app.get('/randomnum',function(req,res){
 app.get('/apihowto',function(req,res){
   res.render('apihowto', getRandomNum());
 });
+
+app.get('/getownedgames',function(req,res)
+{
+	if(req.body['formSubmit']){
+		//get city name
+		var cityName = req.body.city;
+		console.log("cityName= " + cityName);
+		//sumit to get weather
+		var reqWeather = new XMLHttpRequest();
+		reqWeather.open('GET', 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1');
+	}
+	res.render('getownedgames', getRandomNum());
+});
+
+
 
 app.get('/other-page',function(req,res){
   res.render('other-page');
