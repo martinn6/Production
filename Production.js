@@ -38,6 +38,7 @@ app.get('/getownedgames',function(req,res)
 	var response = [];
 	var gameCount;
 	var games = [];
+	var context = {};
 	
 	//if(req.body['formSubmit']){
 
@@ -60,8 +61,8 @@ app.get('/getownedgames',function(req,res)
 		reqAppInfo.send(null);
 		
 	//}
-
-	res.render('getownedgames', response);
+	context.games = response.games || [];
+	res.render('getownedgames',context);
 });
 
 
