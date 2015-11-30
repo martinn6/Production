@@ -33,6 +33,23 @@ app.get('/apihowto',function(req,res){
   res.render('apihowto');
 });
 
+
+app.get('/getownedgames',function(req,res,next){
+  var context = {};
+  request('http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1', function(err, response, body){
+    if(!err && response.statusCode < 400){
+      context.response = body;
+      res.render('getownedgames',context);
+    } else {
+      if(response){
+        console.log(response.statusCode);
+      }
+      next(err);
+    }
+  });
+});
+
+/*
 app.get('/getownedgames',function(req,res)
 {
 	console.log("getownedgames");
@@ -69,7 +86,7 @@ app.get('/getownedgames',function(req,res)
 
 	res.render('getownedgames',context);
 });
-
+*/
 
 
 app.get('/other-page',function(req,res){
