@@ -36,9 +36,12 @@ app.get('/apihowto',function(req,res){
 
 app.get('/getownedgames',function(req,res,next){
   var context = {};
+  var response = {};
   request('http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1', function(err, response, body){
     if(!err && response.statusCode < 400){
-      context.response = body;
+	  response = body.response;
+	  context.numberofgames = response.game_count;
+      context.response = response;
       res.render('getownedgames',context);
     } else {
       if(response){
