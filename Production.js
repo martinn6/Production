@@ -53,9 +53,9 @@ app.get('/getownedgames',function(req,res)
 			responseText = JSON.parse(reqAppInfo.responseText);
 			response = responseText.response;
 			console.log("Response Loaded");
-			gameCount = response.game_count; 
+			this.gameCount = response.game_count; 
 			console.log("inside gameCount: " + gameCount);
-			this.games = response.games
+			games = response.games
 		});
 		console.log("outside gameCount: " + gameCount);
 		reqAppInfo.send(null);
