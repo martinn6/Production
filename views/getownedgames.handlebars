@@ -2,10 +2,9 @@
 <form method="post">
 	<fieldset>
 		<legend>Use my Valve info or user your own</legend>
-		Your API Key: <input type="text" name="yourAPIKey" id="yourAPIKey" value="8B6421C0C4A593FB05AD15FA71752C28"
-			size="42"><BR>
-		Your Valve UserId: <input type="text" name="valveUserID" id="valveUserID" value="76561198031992079"><BR>
-		<input type="checkbox" name="showGameInfo" id="showGameInfo" value="1" checked>Show Game Info<BR>
+		Your API Key: <input type="text" name="yourAPIKey" id="yourAPIKey" size="42"><BR>
+		Your Valve UserId: <input type="text" name="valveUserID" id="valveUserID"><BR>
+		<input type="checkbox" name="showGameInfo" id="showGameInfo" checked>Show Game Info<BR>
 		<input type="submit" name="formSubmit" value="formSubmit">
 	</fieldset>
 </form>
@@ -16,7 +15,7 @@
 <BR>
 <h3>List of Games:</h3>
 	{{#each games}}
-	<div>Name:{{this.name}}</div>
+	<div>Name: {{this.name}} (ID: {{this.appid}})</div>
 	{{/each}}
 {{/if}}
 
