@@ -48,10 +48,9 @@ app.get('/getownedgames',function(req,res)
 		reqAppInfo.addEventListener('load',function()
 		{
 			console.log("Response Loaded");
+			console.log(reqAppInfo.responseText);
 			response = JSON.parse(reqAppInfo.responseText);
-			games = response.games[0];
 			console.log(response);
-			console.log(games);
 		});
 		
 		reqAppInfo.send(null);
