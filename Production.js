@@ -34,6 +34,7 @@ app.get('/apihowto',function(req,res){
 app.get('/getownedgames',function(req,res)
 {
 	console.log("getownedgames");
+	var response = [];
 	
 	//if(req.body['formSubmit']){
 
