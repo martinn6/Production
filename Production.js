@@ -57,6 +57,7 @@ app.get('/getownedgames',function(req,res){
   var context = {};
   console.log(req.query);
   context.yourAPIKey = req.query.yourAPIKey;
+  context.valveUserID = req.query.valveUserID;
   res.render('getownedgames', context);
    
 });
