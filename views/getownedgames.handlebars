@@ -11,8 +11,10 @@
 </form>
 <BR>
 {{#if games}}
-Number of Games: {{numberofgames}}<BR>
-List of Games:<BR>
+<h2>Number of Games:</h2>
+<span>{{numberofgames}}</span>
+<BR>
+<h2>List of Games:</h2>
 	{{#each games}}
 	Name:{{this.name}}<BR>
 	{{/each}}
