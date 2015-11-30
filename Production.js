@@ -45,7 +45,7 @@ app.get('/getownedgames',function(req,res)
 	
 		reqAppInfo.addEventListener('load',function()
 		{
-			console.log(reqAppInfo.responseText);
+			console.log("Response Loaded");
 			var response = JSON.parse(reqAppInfo.responseText);
 			for (var p in response.games){
 					console.log(p);
