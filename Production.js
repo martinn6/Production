@@ -35,6 +35,7 @@ app.get('/getownedgames',function(req,res)
 {
 	console.log("getownedgames");
 	var response = [];
+	var games = [];
 	
 	//if(req.body['formSubmit']){
 
@@ -47,8 +48,10 @@ app.get('/getownedgames',function(req,res)
 		reqAppInfo.addEventListener('load',function()
 		{
 			console.log("Response Loaded");
-			var response = JSON.parse(reqAppInfo.responseText);
-			console.log(response.games);
+			response = JSON.parse(reqAppInfo.responseText);
+			games = response.games;
+			console.log(response);
+			console.log(games);
 		});
 		
 		reqAppInfo.send(null);
