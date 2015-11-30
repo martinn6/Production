@@ -48,7 +48,7 @@ app.get('/getownedgames',function(req,res)
 		{
 			console.log(reqAppInfo.responseText);
 			for (var p in reqAppInfo.responseText){
-					console.log(p);
+					console.log(reqAppInfo.responseText[p]);
 			}
 		});
 		
