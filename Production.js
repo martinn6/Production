@@ -3,6 +3,7 @@ var express = require('express');
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var bodyParser = require('body-parser');
+var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -45,6 +46,7 @@ app.get('/getownedgames',function(req,res)
 			console.log("reqWeather");
 		});
 	}
+	reqAppInfo.send(null);
 	res.render('getownedgames', getRandomNum());
 });
 
