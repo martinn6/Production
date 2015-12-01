@@ -15,7 +15,7 @@
 	{{#each newsitems}}
 	<h4>
 		<SCRIPT>
-			Date convertedDate = new Date({{this.date}}*1000L); 
+			Date convertedDate = new Date({{this.date}}*1000); 
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss z"); 
 			String formattedDate = sdf.format(convertedDate);
 			document.getElementById("demo").innerHTML = formattedDate;
