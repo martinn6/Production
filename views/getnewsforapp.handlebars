@@ -17,7 +17,8 @@
 		<script>
 			var unixDate = {{this.date}};
 			var convertedDate = new Date(unixDate * 1000); 
-			document.getElementById("demo").textContent= convertedDate;
+			document.write(unixDate);
+			document.write(convertedDate);
 		</script>
 		<div id="demo"></div>
 	</h4>
