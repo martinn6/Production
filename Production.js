@@ -119,8 +119,8 @@ app.post('/getnewsforapp',function(req,res,next){
   request('http://api.steampowered.com/IPlayerService/GetNewsForApp/v0001/?key='+ context.yourAPIKey+'&appid=' + context.valveAppID, function(err, response, body){
     if(!err && response.statusCode < 400){
 	  body = JSON.parse(body);
-	  context.numberofgames = body.response.game_count;
-      context.games = body.response.games;
+      //context.games = body.response.games;
+	  console.log(body);
       res.render('getnewsforapp',context);
     } else {
       if(response){
