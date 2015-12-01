@@ -13,7 +13,11 @@
 <BR>
 <h3>News:</h3>
 	{{#each newsitems}}
-	<h4>{{this.date}} * 1000</h4>
+	<h4>
+		<SCRIPT>
+			{{this.date}} * 1000
+		</SCRIPT>
+	</h4>
 	<div>{{{this.contents}}}</div><BR>
 	{{/each}}
 {{/if}}
