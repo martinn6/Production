@@ -113,7 +113,7 @@ app.post('/getnewsforapp',function(req,res,next){
   console.log("POST");
   console.log(req.body);
   context.yourAPIKey = req.body.yourAPIKey;
-  context.valveUserID = req.body.valveUserID;
+  context.valveAppID = req.body.valveAppID;
   if(req.body['showGameInfo'])
   {
 	  showGameInfo = 1;
@@ -124,8 +124,7 @@ app.post('/getnewsforapp',function(req,res,next){
 	showGameInfo = 0;
 	context.showGameInfo = "";
   }
-  console.log("showGameInfo=" + showGameInfo);
-  request('http://api.steampowered.com/IPlayerService/getnewsforapp/v0001/?key='+ context.yourAPIKey+'&steamid=' + context.valveUserID + '&format=json&include_appinfo=' + showGameInfo, function(err, response, body){
+  request('http://api.steampowered.com/IPlayerService/GetNewsForApp/v0001/?key='+ context.yourAPIKey+'&appid=' + context.valveAppID, function(err, response, body){
     if(!err && response.statusCode < 400){
 	  body = JSON.parse(body);
 	  context.numberofgames = body.response.game_count;
