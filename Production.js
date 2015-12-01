@@ -15,7 +15,7 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
-Handlebars.registerHelper('timeConvert', function(time) {
+handlebars.registerHelper('timeConvert', function(time) {
   return time * 1000;
 });
 
