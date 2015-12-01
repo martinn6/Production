@@ -15,9 +15,7 @@
 	{{#each newsitems}}
 	<h4>
 		<script>
-			var unixDate = {{this.date}};
-			var convertedDate = new Date(unixDate * 1000); 
-			document.write(unixDate);
+			var convertedDate = new Date({{this.date}} * 1000); 
 			document.write(convertedDate);
 		</script>
 		<div id="demo"></div>
