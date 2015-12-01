@@ -15,6 +15,10 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
 
+Handlebars.registerHelper('timeConvert', function(time) {
+  return time * 1000;
+});
+
 function getRandomNum() {
 	var stuff = {};
 	stuff.randomNum = Math.floor((Math.random() * 10) + 1);
@@ -121,6 +125,7 @@ app.post('/getnewsforapp',function(req,res,next){
     }
   });
 });
+
 
 
 app.get('/other-page',function(req,res){

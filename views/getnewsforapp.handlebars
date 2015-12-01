@@ -14,7 +14,7 @@
 <h3>News:</h3>
 	{{#each newsitems}}
 	<h4>
-		{{this.date}}
+		{{timeConvert this.date}}
 	</h4>
 	<div>{{{this.contents}}}</div><BR>
 	{{/each}}
