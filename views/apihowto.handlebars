@@ -61,6 +61,9 @@ The main page for Steam's APIs can be found here:
 
 <section id="GetOwnedGames">
 	<h2>GetOwnedGames API</h2>
+	<div>
+		This API will get all of the owned games for a paricular user id (streamid). 
+	</div>
 	<h3>Find your steam ID</h3>
 	<div>
 		Some API's like GetOwnedGames require a stream ID. Its very easy to find your stream ID. To do this, 
@@ -99,32 +102,74 @@ The main page for Steam's APIs can be found here:
 		An example get request that I would use for my login would be: 
 		http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?<font color="green">key=8B6421C0C4A593FB05AD15FA71752C28</font>&<font color="red">steamid=76561198031992079</font>&format=json&<font color="blue">include_appinfo=1</font>
 	<h3>Return</h3>
-		If you typed this into a web browser, it would return a jason object simliar to this:
+		If you typed the above URL into a web browser, it would return a jason object simliar to this:
 		<div>
 		<pre>
-			{
-			"response": {
-				"game_count": 14,
-				"games": [
-					{
-						"appid": 220,
-						"name": "Half-Life 2",
-						"playtime_forever": 1158,
-						"img_icon_url": "fcfb366051782b8ebf2aa297f3b746395858cb62",
-						"img_logo_url": "e4ad9cf1b7dc8475c1118625daf9abd4bdcbcad0",
-						"has_community_visible_stats": true
-					},
-				...
-				]
-			
-			}
-			}
+	{
+		"response": {
+			"game_count": 14,
+			"games": [
+				{
+					"appid": 220,
+					"name": "Half-Life 2",
+					"playtime_forever": 1158,
+					"img_icon_url": "fcfb366051782b8ebf2aa297f3b746395858cb62",
+					"img_logo_url": "e4ad9cf1b7dc8475c1118625daf9abd4bdcbcad0",
+					"has_community_visible_stats": true
+				},
+			...
+			]
+		
+		}
+	}
 		</pre>
 		</div>
 		<h3>Example</h3>
 		To see this in an example website form, click <a href="http://52.10.4.121:3000/getownedgames?yourAPIKey=8B6421C0C4A593FB05AD15FA71752C28&valveUserID=76561198031992079&showGameInfo=on" target="_blank">here</a>.
 </section>
 <section id="GetNewsForApp">
-<h2>GetNewsForApp API</h2>
-To see this in an example website form, click <a href="http://52.10.4.121:3000/getnewsforapp?valveAppID=8930&maxCount=4" target="_blank">here</a>.
+	<h2>GetNewsForApp API</h2>
+	<div>
+		This API will get the latest news for a given AppId. The AppId is a little tricky to find; however, the 
+		previous API discussed 'GetOwnedGames' should give you some names of games and their AppId.
+	</div>
+	<h3>How to Use</h3>
+	<div>
+		To use the GetNewsForApp api, all you have to do is submit a get request to the API's URL with the appropriate 
+		arguments. The Arguments are as follows:
+	</div>
+	<h3>Arguments</h3>
+	<ul>
+		<li>appid: AppID of the game you want the news of. </li>
+		<li>count:  How many news enties you want to get returned. </li>
+		<li>maxlength:  Maximum length of each news entry. </li>
+		<li>format:  Output format. json (default), xml or vdf. </li>
+	</ul>
+	<h3>Exampe URL</h3>
+	An example get request that I would use for my login would be: 
+	http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=8930&count=4&maxlength=300&format=json
+	<h3>Return</h3>
+	<div>
+		<pre>
+		If you typed the above URL into a web browser, it would return a jason object simliar to this:
+		{ 	appid: 8930,
+			newsitems:
+			[ 
+				{ 	gid: '378660375691318759',
+					title: 'The Beginner s Guide: A Journey Through Genres',
+					url: 'http://store.steampowered.com/news/externalpost/rps/378660375691318759',
+					is_external_url: true,
+					author: 'contact@rockpapershotgun.com (Adam Smith)',
+					contents: '<p><img src="http://www.rockpapershotgun.com/images/15/oct/witchsupp.jpg" alt="" /></p>\n<p><em>One day I&#8217;ll write a Desert Island Discs about the games I&#8217;d keep with me until the end of days, given a choice of ten. It&#8217;ll no doubt be a Desert Island Digital Downloads given the absence of physical media in my life. I live with the ghosts of entertainment.</p>\n<p>Rather than compiling the list of games I&#8217;d take to the Vault with me though, today I&#8217;m aiming to put together a collection, one from each genre, that I&#8217;d use to introduce those genres to a PC gaming newcomer, or a lapsed gamer. A friend inspired this particular bundle of joy, someone who grew up with an Amiga but developed other interests and hasn&#8217;t touched a game for more than a few minutes at a time, either console or PC, for over fifteen years. A recent illness has left him unable to engage in his usual outdoor hobbies and games have filled the gap.</em></p>\n<p> &#8230; [<a href="http://www.rockpapershotgun.com/2015/11/03/games-for-beginners/">visit site to read more</a>]</p>\n',
+					feedlabel: 'Rock, Paper, Shotgun',
+					date: 1446577256,
+					feedname: 'rps' 
+				},
+			...
+			]
+		}
+		</pre>
+	</div>
+	<h3>Example</h3>
+	To see this in an example website form, click <a href="http://52.10.4.121:3000/getnewsforapp?valveAppID=8930&maxCount=4" target="_blank">here</a>.
 </section>
