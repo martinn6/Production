@@ -76,7 +76,7 @@ The main page for Steam's APIs can be found here:
 	</div>
 	<h3>Arguments</h3>
 		<ul>
-		<li>steamid:  The SteamID of the account. </li>
+		<li><font color="red">steamid:  The SteamID of the account. </font></li>
 
 		<li>include_appinfo:  Include game name and logo information in the output. 
 		The default is to return appids only. </li>
@@ -95,7 +95,7 @@ The main page for Steam's APIs can be found here:
 		</ul>
 
 		An example that I would use for my login to return a jason object would be: 
-		http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1
+		http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&<font color="red">steamid=76561198031992079</font>&format=json&include_appinfo=1
 	<h3>Return</h3>
 		If you typed this into a web browser, it would return a jason object simliar to this:
 		<div>
