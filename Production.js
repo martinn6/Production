@@ -116,7 +116,7 @@ app.post('/getnewsforapp',function(req,res,next){
 	showGameInfo = 0;
 	context.showGameInfo = "";
   }
-  request('http://api.steampowered.com/IPlayerService/GetNewsForApp/v0001/?key='+ context.yourAPIKey+'&appid=' + context.valveAppID, function(err, response, body){
+  request('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?key='+ context.yourAPIKey+'&appid=' + context.valveAppID, function(err, response, body){
     if(!err && response.statusCode < 400){
 	  body = JSON.parse(body);
       //context.games = body.response.games;
