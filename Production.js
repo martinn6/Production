@@ -107,7 +107,7 @@ app.post('/getnewsforapp',function(req,res,next){
   context.valveAppID = req.body.valveAppID;
   context.maxCount = req.body.maxCount;
   
-  request('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json', function(err, response, body){
+  request('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid='+ context.valveAppID  + '&count=' + context.maxCount + '&format=json', function(err, response, body){
     if(!err && response.statusCode < 400){
 	  body = JSON.parse(body);
       context.newsitems = body.appnews.newsitems;
