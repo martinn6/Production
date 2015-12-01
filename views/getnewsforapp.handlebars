@@ -9,13 +9,11 @@
 	</fieldset>
 </form>
 <BR>
-{{#if games}}
-<h3>Number of Games:</h3>
-<span>{{numberofgames}}</span>
+{{#if newsitems}}
 <BR>
-<h3>List of Games:</h3>
-	{{#each games}}
-	<div>{{#if this.name}}Name: {{this.name}};{{/if}} ID: {{this.appid}}</div>
+<h3>Newss:</h3>
+	{{#each newsitems}}
+	<div>{{this.contents}}</div>
 	{{/each}}
 {{/if}}
 
