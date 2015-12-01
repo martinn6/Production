@@ -100,7 +100,6 @@ app.get('/getnewsforapp',function(req,res){
 app.post('/getnewsforapp',function(req,res,next){
   var context = {};
   var body = {};
-  var showGameInfo;
   console.log("POST");
   console.log(req.body);
   context.yourAPIKey = req.body.yourAPIKey;
@@ -119,8 +118,8 @@ app.post('/getnewsforapp',function(req,res,next){
   request('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json', function(err, response, body){
     if(!err && response.statusCode < 400){
 	  body = JSON.parse(body);
-      //context.games = body.response.games;
-	  console.log(body);
+      context.appnews = body.appnews;
+	  console.log(body.appnews);
       res.render('getnewsforapp',context);
     } else {
       if(response){
