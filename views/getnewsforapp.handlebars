@@ -14,7 +14,12 @@
 <h3>News:</h3>
 	{{#each newsitems}}
 	<h4>
-		{{timeConvert this.date}}
+		<script>
+			var unixDate = {{this.date}};
+			var convertedDate = new Date(unixDate * 1000); 
+			document.getElementById("demo").textContent= convertedDate;
+		</script>
+		<div id="demo"></div>
 	</h4>
 	<div>{{{this.contents}}}</div><BR>
 	{{/each}}
