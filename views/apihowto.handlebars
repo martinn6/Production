@@ -2,9 +2,8 @@
 <h2>Steam's APIs</h2>
 
 <p>
-This page will be an introduction to some of Steam's API's that I find interesting. In this introduction, we 
-will discuss how to implement the Steam's API and then show some API examples. It will end with combining two
-APIs to form a webpage that will show you which games you own and if there are any current updates.
+This page will be an introduction to some of Steam's API's. In this introduction, we 
+will discuss how to setup your website to use Steam's API and then show some API examples. 
 </p>
 
 <h2>Steam's API Support Website</h2>
@@ -17,14 +16,12 @@ The main page for Steam's APIs can be found here:
 
 <ul>
 	<li><a href="#SetupAPIKey">Setup - How to get the API setup</a></li>
-	<li><a href="#FindUserID">Setup - Find your Steam ID</a></li>
 	<li>API tutorials
 		<ul>
 			<li><a href="#GetOwnedGames">GetOwnedGames</a></li>
-			<li>GetNewsForApp</li>
+			<li><a href="#GetNewsForApp">GetNewsForApp</li>
 		</ul>
 	</li>
-	<li>Final Tutorial - Updates For Your Owned Games</li>
 </ul>
 
 <section id="SetupAPIKey">
@@ -59,24 +56,20 @@ The main page for Steam's APIs can be found here:
 </section>
 
 <section id="FindUserID">
-	<h2>Setup - Find your steam ID</h2>
-	<div>
-		Some API's require a stream ID. Its very easy to find your stream ID. To do this, login to your stream profile
-		 here: http://steamcommunity.com/. Once you are loged in, click on your profile pic in the upper right corner
-		 and it will take you to your profile. Your stream ID is the long number located in the URL after profiles/. 
-		 Copy it to a safe location so you can use it later. Now, we have all the things needed to start using the APIs. 
-		 lets take a look at using it with one of them called 'GetOwnedGames'
-	</div>
+	
 </section>
 
 <section id="GetOwnedGames">
 	<h2>GetOwnedGames API</h2>
-	Utilizing what we have gathered so far, we will be able to test out the GetOwnedGames API:
-	<ul>
-	<li>API Key</li>
-	<li>Steam UserId</li>
-	</ul>
-	If you dont have these yet, refer to the previous sections.<BR>
+	<h3>Setup - Find your steam ID</h3>
+	<div>
+		Some API's like GetOwnedGames require a stream ID. Its very easy to find your stream ID. To do this, 
+		login to your stream profile here: http://steamcommunity.com/. Once you are loged in, click on your profile 
+		pic in the upper right corner and it will take you to your profile. Your stream ID is the long number located 
+		in the URL after profiles/. Copy it to a safe location so you can use it later. Now, we have all the 
+		data we need to start using the 'GetOwnedGames' API.  
+	</div>
+	<h3>How to Use</h3>
 	<div>
 		To use the GetOwnedGames api, all you have to do is submit a get request to the API's URL with the appropriate 
 		arguments. The Arguments are as follows:
@@ -103,7 +96,7 @@ The main page for Steam's APIs can be found here:
 
 		An example that I would use for my login to return a jason object would be: 
 		http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1
-		
+	<h3>Return</h3>
 		If you typed this into a web browser, it would return a jason object simliar to this:
 		<div>
 		<text>
@@ -126,9 +119,10 @@ The main page for Steam's APIs can be found here:
 		}
 		</text>
 		</div>
+		<h3>Example</h3>
 		To see this in an example website form, click <a href="http://52.10.4.121:3000/getownedgames?yourAPIKey=8B6421C0C4A593FB05AD15FA71752C28&valveUserID=76561198031992079&showGameInfo=on" target="_blank">here</a>.
-		
-	
 </section>
+<section id="GetNewsForApp">
+<h2>GetNewsForApp API</h2>
 To see this in an example website form, click <a href="http://52.10.4.121:3000/getnewsforapp?valveAppID=8930&maxCount=4" target="_blank">here</a>.
-		 
+</section>
