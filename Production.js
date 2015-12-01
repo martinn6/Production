@@ -91,17 +91,8 @@ app.get('/getnewsforapp',function(req,res){
   var context = {};
   console.log(req.query);
   context.yourAPIKey = req.query.yourAPIKey;
-  context.valveUserID = req.query.valveUserID;
-  if(req.query['showGameInfo'])
-  {
-	  showGameInfo = 1;
-	  context.showGameInfo = "checked='true'";
-  }
-  else
-  {
-	showGameInfo = 0;
-	context.showGameInfo = "";
-  }  
+  context.valveAppID = req.query.valveAppID;
+  context.maxCount = req.query.maxCount;
   res.render('getnewsforapp', context);
    
 });
@@ -114,6 +105,7 @@ app.post('/getnewsforapp',function(req,res,next){
   console.log(req.body);
   context.yourAPIKey = req.body.yourAPIKey;
   context.valveAppID = req.body.valveAppID;
+  context.maxCount = req.body.maxCount;
   if(req.body['showGameInfo'])
   {
 	  showGameInfo = 1;
