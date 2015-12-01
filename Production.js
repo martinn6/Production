@@ -10,14 +10,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use('/images', express.static(__dirname + '/images'));
 
-
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 3000);
-
-handlebars.registerHelper('timeConvert', function(time) {
-  return time * 1000;
-});
 
 function getRandomNum() {
 	var stuff = {};
