@@ -100,25 +100,17 @@ app.get('/getnewsforapp',function(req,res){
 app.post('/getnewsforapp',function(req,res,next){
   var context = {};
   var body = {};
+
   console.log("POST");
   console.log(req.body);
   context.yourAPIKey = req.body.yourAPIKey;
   context.valveAppID = req.body.valveAppID;
   context.maxCount = req.body.maxCount;
-  if(req.body['showGameInfo'])
-  {
-	  showGameInfo = 1;
-	  context.showGameInfo = "checked='true'";
-  }
-  else
-  {
-	showGameInfo = 0;
-	context.showGameInfo = "";
-  }
+  
   request('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json', function(err, response, body){
     if(!err && response.statusCode < 400){
 	  body = JSON.parse(body);
-      context.appnews = body.appnews;
+      context.newsitems = body.appnews.newsitems;
 	  console.log(body.appnews);
       res.render('getnewsforapp',context);
     } else {
