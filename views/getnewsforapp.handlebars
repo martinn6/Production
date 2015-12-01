@@ -1,0 +1,21 @@
+<h1>martinn6's Valve GetOwnedGames API Example</h1>
+<form method="post">
+	<fieldset>
+		<legend>Use my Valve info or user your own</legend>
+		Your API Key: <input type="text" name="yourAPIKey" id="yourAPIKey" value = "{{yourAPIKey}}" size="42"><BR>
+		Your Valve UserId: <input type="text" name="valveUserID" id="valveUserID" value = "{{valveUserID}}"><BR>
+		<input type="checkbox" name="showGameInfo" id="showGameInfo" {{showGameInfo}}">Show Game Info<BR>
+		<input type="submit" name="formSubmit" value="Submit">
+	</fieldset>
+</form>
+<BR>
+{{#if games}}
+<h3>Number of Games:</h3>
+<span>{{numberofgames}}</span>
+<BR>
+<h3>List of Games:</h3>
+	{{#each games}}
+	<div>{{#if this.name}}Name: {{this.name}};{{/if}} ID: {{this.appid}}</div>
+	{{/each}}
+{{/if}}
+

@@ -87,44 +87,58 @@ app.post('/getownedgames',function(req,res,next){
 });
 
 
-/*
-app.get('/getownedgames',function(req,res)
-{
-	console.log("getownedgames");
-	var responseText = [];
-	var response = [];
-	var gameCount;
-	var games = [];
-	var context = {};
-	
-	//if(req.body['formSubmit']){
-
-	//	console.log("formSubmit");
-
-	
-		var reqAppInfo = new XMLHttpRequest();
-		reqAppInfo.open('GET', 'http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=8B6421C0C4A593FB05AD15FA71752C28&steamid=76561198031992079&format=json&include_appinfo=1');
-		reqAppInfo.addEventListener('load', function()
-		{
-			responseText = JSON.parse(reqAppInfo.responseText);
-			response = responseText.response;
-			console.log("Response Loaded");
-			gameCount = response.game_count; 
-			console.log("inside gameCount: " + gameCount);
-			games = response.games
-		});
-		console.log("outside gameCount: " + gameCount);
-		
-		reqAppInfo.send();
-		
-	//}
-	context.numberofgames = gameCount || 0;
-	context.games = response.games || [];
-	console.log(context.games);
-
-	res.render('getownedgames',context);
+app.get('/getnewsforapp',function(req,res){
+  var context = {};
+  console.log(req.query);
+  context.yourAPIKey = req.query.yourAPIKey;
+  context.valveUserID = req.query.valveUserID;
+  if(req.query['showGameInfo'])
+  {
+	  showGameInfo = 1;
+	  context.showGameInfo = "checked='true'";
+  }
+  else
+  {
+	showGameInfo = 0;
+	context.showGameInfo = "";
+  }  
+  res.render('getnewsforapp', context);
+   
 });
-*/
+
+app.post('/getnewsforapp',function(req,res,next){
+  var context = {};
+  var body = {};
+  var showGameInfo;
+  console.log("POST");
+  console.log(req.body);
+  context.yourAPIKey = req.body.yourAPIKey;
+  context.valveUserID = req.body.valveUserID;
+  if(req.body['showGameInfo'])
+  {
+	  showGameInfo = 1;
+	  context.showGameInfo = "checked='true'";
+  }
+  else
+  {
+	showGameInfo = 0;
+	context.showGameInfo = "";
+  }
+  console.log("showGameInfo=" + showGameInfo);
+  request('http://api.steampowered.com/IPlayerService/getnewsforapp/v0001/?key='+ context.yourAPIKey+'&steamid=' + context.valveUserID + '&format=json&include_appinfo=' + showGameInfo, function(err, response, body){
+    if(!err && response.statusCode < 400){
+	  body = JSON.parse(body);
+	  context.numberofgames = body.response.game_count;
+      context.games = body.response.games;
+      res.render('getnewsforapp',context);
+    } else {
+      if(response){
+        console.log(response.statusCode);
+      }
+      next(err);
+    }
+  });
+});
 
 
 app.get('/other-page',function(req,res){
