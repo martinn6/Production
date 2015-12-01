@@ -11,9 +11,10 @@
 <BR>
 {{#if newsitems}}
 <BR>
-<h3>Newss:</h3>
+<h3>News:</h3>
 	{{#each newsitems}}
-	<div>{{this.contents}}</div>
+	<h4>{{this.date}}</h4>
+	<div>{{this.contents}}</div><BR>
 	{{/each}}
 {{/if}}
 
