@@ -116,7 +116,7 @@ app.post('/getnewsforapp',function(req,res,next){
 	showGameInfo = 0;
 	context.showGameInfo = "";
   }
-  request('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=' + context.valveAppID + '&count=3', function(err, response, body){
+  request('http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json', function(err, response, body){
     if(!err && response.statusCode < 400){
 	  body = JSON.parse(body);
       //context.games = body.response.games;
