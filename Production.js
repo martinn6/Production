@@ -1,5 +1,12 @@
 var express = require('express');
-var mysql = require('./ConnectDB.js');
+var mysql = require('mysql');
+var pool = mysql.createPool({
+  host  : 'localhost',
+  user  : 'student',
+  password: 'default',
+  database: 'student'
+});
+
 
 
 var app = express();
@@ -24,7 +31,7 @@ function getRandomNum() {
 
 app.get('/reset-table',function(req,res,next){
   var context = {};
-  mysql.query("DROP TABLE IF EXISTS workouts", function(err){ //replace your connection pool with the your variable containing the connection pool
+  mysql.pool.query("DROP TABLE IF EXISTS workouts", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE workouts("+
     "id INT PRIMARY KEY AUTO_INCREMENT,"+
     "name VARCHAR(255) NOT NULL,"+

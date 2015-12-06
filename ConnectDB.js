@@ -5,3 +5,5 @@ var pool = mysql.createPool({
   password: 'default',
   database: 'student'
 });
+
+module.exports.pool = pool;
