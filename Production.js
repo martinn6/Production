@@ -1,12 +1,5 @@
 var express = require('express');
-var mysql = require('mysql');
-var pool = mysql.createPool({
-  host  : 'localhost',
-  user  : 'student',
-  password: 'default',
-  database: 'student'
-});
-
+var mysql = require('./ConnectDB.js');
 
 
 var app = express();
