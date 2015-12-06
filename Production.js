@@ -79,8 +79,8 @@ app.post('/workout',function(req,res,next){
       next(err);
       return;
     }
-		console.log(results);
-     context.insert = "Inserted id " + result.insertId;
+		context.insert = "Inserted id " + result.insertId;
+		console.log(context.insert);
 	});
   }
   
