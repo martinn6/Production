@@ -64,7 +64,6 @@ app.get('/workout',function(req,res,next){
       return;
     }
     context.wolist = JSON.stringify(rows);
-	console.log(context.list);
     res.render('workout', context);
   });
 });
