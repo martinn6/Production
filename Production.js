@@ -112,20 +112,22 @@ app.post('/workout',function(req,res,next){
 
 
 app.post('/workoutupdate',function(req,res){
-  var context = {
-		"list": ""}
+var list = {};
+var context = {};
 		
  
-  context.list.id = [req.body.id];
-  context.list.name = [req.body.name];
-  context.list.name = [req.body.reps];
-  context.list.name = [req.body.weight];
-  context.list.name = [req.body.date];
-  context.list.name = [req.body.lbs];
+  list.id = [req.body.id];
+  list.name = [req.body.name];
+  list.name = [req.body.reps];
+  list.name = [req.body.weight];
+  list.name = [req.body.date];
+  list.name = [req.body.lbs];
+  
+  context.list = list;
   
   console.log(context.list);
   
-  res.render('workoutupdate', context)
+  res.render('workoutupdate', context);
 });
 
 
