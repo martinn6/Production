@@ -56,7 +56,8 @@ app.get('/insert',function(req,res,next){
 app.get('/workout',function(req,res,next){
   var context = {};
   
-  if(req.body['Add Item']){
+  if(req.query['Add Item']){
+	  console.log("add item");
 	mysql.pool.query("INSERT INTO workouts (name,reps,weight,date,lbs) VALUES (?,?,?,?,?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
     if(err){
       next(err);
