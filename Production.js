@@ -1,4 +1,6 @@
 var express = require('express');
+var mysql = require('./ConnectDB.js');
+
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
