@@ -30,6 +30,11 @@ table, td, tr, th {
 				<TD>{{this.weight}}</TD>
 				<TD>{{this.date}}</TD>
 				<TD>{{this.lbs}}</TD>
+				<TD>
+					<form method="post">
+					<input type="hidden" id="{{this.id}}">
+					<input type="submit" name="DELETE" value="DELETE">
+				</form>
 			</TR>
 		{{/each}}
 	</table>
@@ -38,9 +43,9 @@ table, td, tr, th {
 <h3>CREATE A TASK</h3>
 <form method="post">
   Name: <input type="text" name="name" id="name"><BR>
-  reps: <input type="text" name="reps" id="reps"><BR>
-  weight: <input type="text" name="weight" id="weight"><BR>
-  date: <input type="text" name="date" id="date"><BR>
+  Reps: <input type="text" name="reps" id="reps"><BR>
+  Weight: <input type="text" name="weight" id="weight"><BR>
+  Date: <input type="text" name="date" id="date"><BR>
   lbs: 	<select name="lbs">
 			<option value="1">lbs</option>
 			<option value="0">kg</option>
