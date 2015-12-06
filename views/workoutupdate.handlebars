@@ -16,8 +16,9 @@ table, td, tr, th {
   Weight: <input type="text" name="weight" id="weight" value="{{weight}}"><BR>
   Date: <input type="text" name="date" id="date" value="{{date}}"><BR>
   lbs: 	<select name="lbs">
-			<option value="1">lbs</option>
-			<option value="0">kg</option>
+			{{options}}
+			<!--<option value="1">lbs</option>
+			<option value="0">kg</option>-->
 		</select><BR>
    <input type="hidden" name="id" value="{{id}}">
    <input type="submit" name="UPDATE" value="UPDATE">
