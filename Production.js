@@ -74,16 +74,17 @@ app.post('/workout',function(req,res,next){
   
   if(req.body['Add Item']){
 	  console.log("add item");
-	mysql.pool.body("INSERT INTO workouts (name,reps,weight,date,lbs) VALUES (?,?,?,?,?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
+	mysql.pool.query("INSERT INTO workouts (name,reps,weight,date,lbs) VALUES (?,?,?,?,?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
     if(err){
       next(err);
       return;
     }
+		console.log(results);
      context.insert = "Inserted id " + result.insertId;
 	});
   }
   
-  mysql.pool.body('SELECT * FROM workouts', function(err, rows, fields){
+  mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
       return;
