@@ -118,6 +118,10 @@ app.post('/workoutupdate',function(req,res){
  
   context.list.id = [req.body.id];
   context.list.name = [req.body.name];
+  context.list.name = [req.body.reps];
+  context.list.name = [req.body.weight];
+  context.list.name = [req.body.date];
+  context.list.name = [req.body.lbs];
   
   console.log(context.list);
   
