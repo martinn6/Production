@@ -1,5 +1,5 @@
 var express = require('express');
-var mysql = require('ConnectDB.js');
+var mysql = require('.\ConnectDB.js');
 
 
 var app = express();
