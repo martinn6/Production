@@ -65,6 +65,7 @@ app.get('/workout',function(req,res,next){
     }
   console.log(rows);
   context.list = JSON.parse(JSON.stringify(rows));
+  console.log("GET");
   console.log(context.list);
   res.render('workout', context);
   });
@@ -73,13 +74,6 @@ app.get('/workout',function(req,res,next){
 
 app.post('/workout',function(req,res,next){
   var context = {};
-  
-   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
-    if(err){
-      next(err);
-      return;
-    }
-    context.list = JSON.parse(JSON.stringify(rows));
   
   if(req.body['Add Item']){
 	  console.log("add item");
@@ -94,7 +88,14 @@ app.post('/workout',function(req,res,next){
 	});
   }
   
- 
+  mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+    context.list = JSON.parse(JSON.stringify(rows));
+	console.log("POST");
+	console.log(context.list);
     res.render('workout', context);
   });
 });
