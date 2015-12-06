@@ -134,6 +134,10 @@ var context = {};
   context.weight = [req.body.weight];
   context.date = [req.body.date];
   context.lbs = [req.body.lbs];
+  if(context.lbs == "1")
+	  console.log("this will work");
+  else
+	  console.log("not");
   
   console.log(context);
   
