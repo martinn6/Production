@@ -106,8 +106,8 @@ app.post('/workout',function(req,res,next){
       next(err);
       return;
     }
-		context.deleted = "Updated id " + result.insertId;
-		console.log(context.deleted);
+		context.results = "Updated " + result.changedRows + " rows.";
+		console.log(context.results);
 	});
   }
   
