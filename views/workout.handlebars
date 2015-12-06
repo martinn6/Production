@@ -22,8 +22,8 @@ table, td, tr, th {
 			<TH>Weight</TH>
 			<TH>Date</TH>
 			<TH>lbs</TH>
-			<TH>DELETE RECORD</TH>
-			<TH>UPDATE RECORD</TH>
+			<TH>Delete Record</TH>
+			<TH>Update Record</TH>
 		</TR>
 		{{#each list}}
 			<TR>
@@ -36,6 +36,12 @@ table, td, tr, th {
 					<form method="post">
 					<input type="hidden" name="id" value="{{this.id}}">
 					<input type="submit" name="DELETE" value="DELETE">
+					</form>
+				</TD>
+				<TD>
+					<form method="post">
+					<input type="hidden" name="id" value="{{this.id}}">
+					<input type="submit" name="UPDATE" value="UPDATE">
 					</form>
 				</TD>
 			</TR>
