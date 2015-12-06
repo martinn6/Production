@@ -73,7 +73,6 @@ app.get('/workout',function(req,res,next){
 			context.list[i].measurement="kg";
 	  }
   console.log("GET");
-  console.log(context.list);
   res.render('workout', context);
   });
 });
@@ -132,7 +131,6 @@ app.post('/workout',function(req,res,next){
 			context.list[i].measurement="kg";
 	  }
 	console.log("POST");
-	console.log(context.list);
     res.render('workout', context);
   });
 });
