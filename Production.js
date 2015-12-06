@@ -119,9 +119,11 @@ app.post('/workoutupdate',function(req,res){
 		{"name":""}
   ]}
 		
-  
+ 
   context.list.id = [req.body.id];
   context.list.name = [req.body.name];
+  
+  console.log(context.list);
   
   res.render('workoutupdate', context)
 });
