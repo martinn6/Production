@@ -1,6 +1,6 @@
 <h1>martinn6's workout</h1>
 <h2>Tasks</h2>
-List: {{list}}
+List: {{wolist}}
 <div>
 {{#if wolist}}
 	<TABLE>
@@ -11,9 +11,9 @@ List: {{list}}
 			<TH>Date</TH>
 			<TH>lbs</TH>
 		</TR>
-		{{#each name}}
+		{{#each wolist}}
 		<TR>
-			<TD>TEST1 {{this}}</TD>
+			<TD>{{wolist.name}}</TD>
 		</TR>
 		{{/each}}
 	</TABLE>
