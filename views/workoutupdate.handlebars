@@ -15,14 +15,15 @@ table, td, tr, th {
 </style>
 <h3>UPDATE A TASK</h3>
 <form method="post">
-  Name: <input type="text" name="name" id="name" value="{{name}}><BR>
-  Reps: <input type="text" name="reps" id="reps" value=""><BR>
-  Weight: <input type="text" name="weight" id="weight" value=""><BR>
-  Date: <input type="text" name="date" id="date" value=""><BR>
+  Name: <input type="text" name="name" id="name" value="{{name}}"><BR>
+  Reps: <input type="text" name="reps" id="reps" value="{{reps}}"><BR>
+  Weight: <input type="text" name="weight" id="weight" value="{{weight}}"><BR>
+  Date: <input type="text" name="date" id="date" value="{{date}}"><BR>
   lbs: 	<select name="lbs">
 			<option value="1">lbs</option>
 			<option value="0">kg</option>
 		</select><BR>
-		 <input type="submit" name="UPDATE" value="UPDATE">
+   <input type="hidden" name="id" value="{{id}}">
+   <input type="submit" name="UPDATE" value="UPDATE">
 </form> 
 
