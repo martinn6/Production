@@ -114,7 +114,7 @@ app.post('/workout',function(req,res,next){
 
 app.post('/workoutupdate',function(req,res){
   var list = [{"id":""},{"name":""}];
-  var context = {new list};
+  var context = {[list]};
   
   context.list.id = [req.body.id];
   context.list.name = [req.body.name];
