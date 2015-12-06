@@ -60,6 +60,7 @@ app.get('/workout',function(req,res,next){
       return;
     }
     context.results = JSON.stringify(rows);
+	console.log(mysql.pool.query);
     res.render('workout', context);
   });
 });
