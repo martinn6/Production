@@ -63,7 +63,7 @@ app.get('/workout',function(req,res,next){
       next(err);
       return;
     }
-  context.wolist = [{"name":"test1"},{"name":"test2"}];
+  context.list =  JSON.stringify(rows);
     res.render('workout', context);
   });
 });

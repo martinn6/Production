@@ -2,13 +2,13 @@
 <h2>Tasks</h2>
 List: {{wolist}}
 <div>
-
-		{{#each wolist}}
+{{#if list}}
+		{{#each list}}
 			Name: {{this.name}}
 		{{/each}}
 
 </div>
-
+{{/if}}
 
 <h3>CREATE A TASK</h3>
 <form method="POST">
