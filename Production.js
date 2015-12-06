@@ -64,7 +64,7 @@ app.get('/workout',function(req,res,next){
     }
      context.insert = "Inserted id " + result.insertId;
 	});
-  
+  }
   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
