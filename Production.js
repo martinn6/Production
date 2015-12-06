@@ -91,7 +91,7 @@ app.post('/workout',function(req,res,next){
   if(req.body['DELETE']){
 	  console.log("delete item");
 	  console.log(req.body);
-	mysql.pool.query("DELETE FROM workouts WHERE ID = ?", [req.body.id], function(err, result){
+	mysql.pool.query("DELETE FROM workouts WHERE id = ?", [req.body.id], function(err, result){
     if(err){
       next(err);
       return;
