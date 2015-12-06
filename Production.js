@@ -65,7 +65,7 @@ app.get('/workout',function(req,res,next){
     }
   console.log(rows);
   context.list = JSON.parse(JSON.stringify(rows));
-  for(int i = 0; i < context.list.length; i++)
+  for(var i = 0; i < context.list.length; i++)
 		console.log(context.list[i].lbs);
   console.log("GET");
   res.render('workout', context);
@@ -118,7 +118,7 @@ app.post('/workout',function(req,res,next){
       return;
     }
     context.list = JSON.parse(JSON.stringify(rows));
-	for(int i = 0; i < context.list.length; i++)
+	  for(var i = 0; i < context.list.length; i++)
 		console.log(context.list[i].lbs);
 	console.log("POST");
     res.render('workout', context);
