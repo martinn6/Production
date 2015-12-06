@@ -113,8 +113,12 @@ app.post('/workout',function(req,res,next){
 
 
 app.post('/workoutupdate',function(req,res){
-  var list = [{"id":""},{"name":""}];
-  var context = {[list]};
+  var context = {
+		"list": [
+		{"id":""},
+		{"name":""}
+  ]}
+		
   
   context.list.id = [req.body.id];
   context.list.name = [req.body.name];
