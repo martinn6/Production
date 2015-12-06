@@ -135,9 +135,9 @@ var context = {};
   context.date = [req.body.date];
   context.lbs = [req.body.lbs];
   if(context.lbs == "1")
-	  console.log("this will work");
+	  context.options = "<option selected=\"selected\" value=\"1\">lbs</option> <option value=\"0\">kg</option>";
   else
-	  console.log("not");
+	  context.options = "<option value=\"1\">lbs</option> <option selected=\"selected\" value=\"0\">kg</option>";
   
   console.log(context);
   
