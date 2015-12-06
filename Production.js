@@ -32,7 +32,7 @@ app.get('/reset-table',function(req,res,next){
     "weight INT,"+
     "date DATE,"+
     "lbs BOOLEAN)";
-    [your connection pool].query(createString, function(err){
+    mysql.pool.query(createString, function(err){
       context.results = "Table reset";
       res.render('home',context);
     })
