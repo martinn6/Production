@@ -64,7 +64,7 @@ app.get('/workout',function(req,res,next){
       return;
     }
   console.log(rows);
-  context.list =  JSON.parse(rows);
+  context.list =  JSON.parse(JSON.stringify(rows));
   console.log(context.list);
   res.render('workout', context);
   });
