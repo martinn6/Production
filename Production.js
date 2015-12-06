@@ -47,7 +47,7 @@ app.get('/workout',function(req,res,next){
       return;
     }
     context.results = JSON.stringify(rows);
-    res.render('home', context);
+    res.render('workout', context);
   });
 });
 
