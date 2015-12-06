@@ -65,9 +65,15 @@ app.get('/workout',function(req,res,next){
     }
   console.log(rows);
   context.list = JSON.parse(JSON.stringify(rows));
-  for(var i = 0; i < context.list.length; i++)
-		console.log(context.list[i].lbs);
+   for(var i = 0; i < context.list.length; i++)
+	  {
+		if(context.list[i].lbs==1)
+			context.list[i].measurement="lbs";
+		else
+			context.list[i].measurement="kg";
+	  }
   console.log("GET");
+  console.log(context.list);
   res.render('workout', context);
   });
 });
