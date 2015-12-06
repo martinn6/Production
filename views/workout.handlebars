@@ -1,6 +1,27 @@
 <h1>martinn6's workout</h1>
-Results: {{results}}<BR> 
-Insert: {{insert}}
+<h2>Tasks</h2>
+{{#if list}}
+	<TABLE>
+		<TR>
+			<TH>Name</TH>
+			<TH>Reps</TH>
+			<TH>Weight</TH>
+			<TH>Date</TH>
+			<TH>lbs</TH>
+		<TR>
+
+		{{#each id}}
+		<TR>
+			<TD>{{this.name}}</TD>
+			<TD>{{this.reps}}</TD>
+			<TD>{{this.weight}}</TD>
+			<TD>{{this.date}}</TD>
+			<TD>{{this.lbs}}</TD>
+		</TR>
+		{{/each}}
+	</TABLE>
+{{/if}}
+
 
 <h3>CREATE A TASK</h3>
 <form id="newworkout" method="GET">

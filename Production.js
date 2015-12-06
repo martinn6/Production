@@ -66,13 +66,13 @@ app.get('/workout',function(req,res,next){
      context.insert = "Inserted id " + result.insertId;
 	});
   }
+  
   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
       return;
     }
-    context.results = JSON.stringify(rows);
-	console.log(mysql.pool.query);
+    context.list = JSON.stringify(rows);
     res.render('workout', context);
   });
 });
