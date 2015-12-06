@@ -26,12 +26,12 @@ app.get('/reset-table',function(req,res,next){
   var context = {};
   mysql.pool.query("DROP TABLE IF EXISTS workouts", function(err){ //replace your connection pool with the your variable containing the connection pool
     var createString = "CREATE TABLE workouts("+
-    //"id INT PRIMARY KEY AUTO_INCREMENT,"+
+    "id INT PRIMARY KEY AUTO_INCREMENT,"+
     "name VARCHAR(255) NOT NULL,"+
-    //"reps INT,"+
-   // "weight INT,"+
-   // "date DATE,"+
-   // "lbs BOOLEAN)";
+    "reps INT,"+
+    "weight INT,"+
+    "date DATE,"+
+    "lbs BOOLEAN)";
     mysql.pool.query(createString, function(err){
       context.results = "Table reset";
       res.render('reset-table',context);
@@ -64,13 +64,13 @@ app.get('/workout',function(req,res,next){
       return;
     }
   console.log(rows);
-  context.list =  JSON.parse(JSON.stringify(rows));
+  context.list = JSON.parse(JSON.stringify(rows));
   console.log(context.list);
   res.render('workout', context);
   });
 });
 
-/*
+
 app.post('/workout',function(req,res,next){
   var context = {};
   
@@ -92,11 +92,11 @@ app.post('/workout',function(req,res,next){
       next(err);
       return;
     }
-    context.list = JSON.stringify(rows);
+    context.list = JSON.parse(JSON.stringify(rows));
     res.render('workout', context);
   });
 });
-*/
+
 
 
 
