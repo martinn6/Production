@@ -74,6 +74,13 @@ app.get('/workout',function(req,res,next){
 app.post('/workout',function(req,res,next){
   var context = {};
   
+   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
+    if(err){
+      next(err);
+      return;
+    }
+    context.list = JSON.parse(JSON.stringify(rows));
+  
   if(req.body['Add Item']){
 	  console.log("add item");
 	  console.log(req.body);
@@ -87,12 +94,7 @@ app.post('/workout',function(req,res,next){
 	});
   }
   
-  mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
-    if(err){
-      next(err);
-      return;
-    }
-    context.list = JSON.parse(JSON.stringify(rows));
+ 
     res.render('workout', context);
   });
 });
