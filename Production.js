@@ -88,6 +88,19 @@ app.post('/workout',function(req,res,next){
 	});
   }
   
+  if(req.body['DELETE']){
+	  console.log("delete item");
+	  console.log(req.body);
+	mysql.pool.query("DELETE FROM workouts WHERE ID = ?", [req.body.id], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+		context.deleted = "Deleted id " + result.insertId;
+		console.log(context.deleted);
+	});
+  }
+  
   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
