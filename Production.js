@@ -77,7 +77,6 @@ app.post('/workout',function(req,res,next){
   
   if(req.body['Add Item']){
 	  console.log("add item");
-	  console.log(req.body);
 	mysql.pool.query("INSERT INTO workouts (name,reps,weight,date,lbs) VALUES (?,?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs], function(err, result){
     if(err){
       next(err);
@@ -90,7 +89,6 @@ app.post('/workout',function(req,res,next){
   
   if(req.body['DELETE']){
 	  console.log("delete item");
-	  console.log(req.body);
 	mysql.pool.query("DELETE FROM workouts WHERE id = ?", [req.body.id], function(err, result){
     if(err){
       next(err);
