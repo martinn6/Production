@@ -99,6 +99,18 @@ app.post('/workout',function(req,res,next){
 	});
   }
   
+  if(req.body['UPDATE']){
+	  console.log("update item");
+	mysql.pool.query("UPDATE workouts SET name = ?,	reps = ?, weight = ?, date = ?,	lbs = ? WHERE id = ?", [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs, req.body.id], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+		context.deleted = "Updated id " + result.insertId;
+		console.log(context.deleted);
+	});
+  }
+  
   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
