@@ -47,7 +47,7 @@ app.get('/insert',function(req,res,next){
       return;
     }
     context.results = "Inserted id " + result.insertId;
-	console.log(results);
+	console.log(result);
     res.render('workout',result);
   });
 });
