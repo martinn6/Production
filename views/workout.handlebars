@@ -39,8 +39,13 @@ table, td, tr, th {
 					</form>
 				</TD>
 				<TD>
-					<form method="post">
+					<form action="/update" method="post">
 					<input type="hidden" name="id" value="{{this.id}}">
+					<input type="hidden" name="name" value="{{this.name}}">
+					<input type="hidden" name="reps" value="{{this.reps}}">
+					<input type="hidden" name="weight" value="{{this.weight}}">
+					<input type="hidden" name="date" value="{{this.date}}">
+					<input type="hidden" name="lbs" value="{{this.lbs}}">
 					<input type="submit" name="UPDATE" value="UPDATE">
 					</form>
 				</TD>
