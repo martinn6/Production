@@ -3,20 +3,10 @@
 List: {{wolist}}
 <div>
 {{#if wolist}}
-	<TABLE>
-		<TR>
-			<TH>Name</TH>
-			<TH>Reps</TH>
-			<TH>Weight</TH>
-			<TH>Date</TH>
-			<TH>lbs</TH>
-		</TR>
+	
 		{{#each wolist}}
-		<TR>
-			<TD>{{wolist.name}}</TD>
-		</TR>
+			Name: {{this.name}}
 		{{/each}}
-	</TABLE>
 {{/if}}
 </div>
 
