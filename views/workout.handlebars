@@ -2,7 +2,7 @@
 <h2>Tasks</h2>
 List: {{list}}
 <div id="list">
-{{#if list}}
+{{#if wolist}}
 	<TABLE>
 		<TR>
 			<TH>Name</TH>
@@ -11,13 +11,9 @@ List: {{list}}
 			<TH>Date</TH>
 			<TH>lbs</TH>
 		</TR>
-		{{#each list}}
+		{{#each wolist}}
 		<TR>
 			<TD>TEST1 {{this.name}}</TD>
-			<TD>TEST2 {{this.reps}}</TD>
-			<TD>TEST3 {{this.weight}}</TD>
-			<TD>TEST4 {{this.date}}</TD>
-			<TD>TEST5 {{this.lbs}}</TD>
 		</TR>
 		{{/each}}
 	</TABLE>
