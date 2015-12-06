@@ -39,6 +39,19 @@ app.get('/reset-table',function(req,res,next){
   });
 });
 
+app.get('/insert',function(req,res,next){
+  var context = {};
+  mysql.pool.query("INSERT INTO workout (`name`, 'reps', 'weight', 'date', 'lbs') VALUES (?) (?)", [req.query.name] [req.query.reps], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+    context.results = "Inserted id " + result.insertId;
+    res.render('workout',context);
+  });
+});
+
+
 app.get('/workout',function(req,res,next){
   var context = {};
   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){

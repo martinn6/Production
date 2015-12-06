@@ -2,7 +2,7 @@
 Results: {{results}}
 
 <h3>CREATE A TASK</h3>
-<form>
+<form action="action_page.php"> method="GET">
   Name: <input type="text" name="name" id="name"><BR>
   reps: <input type="text" name="reps" id="reps"><BR>
   weight: <input type="text" name="weight" id="weight"><BR>
@@ -10,6 +10,6 @@ Results: {{results}}
   lbs: 	<select name="lbs or kg">
 			<option value="1">lbs</option>
 			<option value="0">kg</option>
-		</select>
+		</select><BR>
 		<button type="button">Add Task</button>
 </form>
