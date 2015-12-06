@@ -1,0 +1,68 @@
+<h1>martinn6's workout</h1>
+<h2>Tasks</h2>
+<style>
+
+table {
+    border-collapse: collapse;
+}
+
+
+table, td, tr, th {
+    border: 1px solid black;
+}
+
+
+</style>
+<div>
+{{#if list}}
+	<table>
+		<TR>
+			<TH>Name</TH>
+			<TH>Reps</TH>
+			<TH>Weight</TH>
+			<TH>Date</TH>
+			<TH>lbs</TH>
+			<TH>Delete Record</TH>
+			<TH>Update Record</TH>
+		</TR>
+		{{#each list}}
+			<TR>
+				<TD>{{this.name}}</TD>
+				<TD>{{this.reps}}</TD>
+				<TD>{{this.weight}}</TD>
+				<TD>{{this.date}}</TD>
+				<TD>{{this.lbs}}</TD>
+				<TD>
+					<form method="post">
+					<input type="hidden" name="id" value="{{this.id}}">
+					<input type="submit" name="DELETE" value="DELETE">
+					</form>
+				</TD>
+				<TD>
+					<form action="/update" method="post">
+					<input type="hidden" name="id" value="{{this.id}}">
+					<input type="hidden" name="name" value="{{this.name}}">
+					<input type="hidden" name="reps" value="{{this.reps}}">
+					<input type="hidden" name="weight" value="{{this.weight}}">
+					<input type="hidden" name="date" value="{{this.date}}">
+					<input type="hidden" name="lbs" value="{{this.lbs}}">
+					<input type="submit" name="UPDATE" value="UPDATE">
+					</form>
+				</TD>
+			</TR>
+		{{/each}}
+	</table>
+{{/if}}
+</div>
+<h3>CREATE A TASK</h3>
+<form method="post">
+  Name: <input type="text" name="name" id="name"><BR>
+  Reps: <input type="text" name="reps" id="reps"><BR>
+  Weight: <input type="text" name="weight" id="weight"><BR>
+  Date: <input type="text" name="date" id="date"><BR>
+  lbs: 	<select name="lbs">
+			<option value="1">lbs</option>
+			<option value="0">kg</option>
+		</select><BR>
+		 <input type="submit" name="Add Item" value="Add Item">
+</form> 
