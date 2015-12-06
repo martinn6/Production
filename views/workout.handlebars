@@ -1,7 +1,7 @@
 <h1>martinn6's workout</h1>
 <h2>Tasks</h2>
 List: {{list}}
-<div id="list">
+<div>
 {{#if wolist}}
 	<TABLE>
 		<TR>
@@ -11,14 +11,13 @@ List: {{list}}
 			<TH>Date</TH>
 			<TH>lbs</TH>
 		</TR>
-		{{#each wolist}}
+		{{#each name}}
 		<TR>
-			<TD>TEST1 {{this.name}}</TD>
+			<TD>TEST1 {{this}}</TD>
 		</TR>
 		{{/each}}
 	</TABLE>
 {{/if}}
-fudge<BR>
 </div>
 
 
