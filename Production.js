@@ -55,6 +55,16 @@ app.get('/insert',function(req,res,next){
 
 app.get('/workout',function(req,res,next){
   var context = {};
+  
+  if(req.body['Add Item']){
+	mysql.pool.query("INSERT INTO workouts (name,reps,weight,date,lbs) VALUES (?,?,?,?,?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
+    if(err){
+      next(err);
+      return;
+    }
+     context.insert = "Inserted id " + result.insertId;
+	});
+  
   mysql.pool.query('SELECT * FROM workouts', function(err, rows, fields){
     if(err){
       next(err);
