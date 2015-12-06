@@ -118,10 +118,10 @@ var context = {};
  
   list.id = [req.body.id];
   list.name = [req.body.name];
-  list.name = [req.body.reps];
-  list.name = [req.body.weight];
-  list.name = [req.body.date];
-  list.name = [req.body.lbs];
+  list.reps = [req.body.reps];
+  list.weight = [req.body.weight];
+  list.date = [req.body.date];
+  list.lbs = [req.body.lbs];
   
   context.list = list;
   
