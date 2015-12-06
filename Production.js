@@ -106,7 +106,6 @@ app.post('/workout',function(req,res,next){
     }
     context.list = JSON.parse(JSON.stringify(rows));
 	console.log("POST");
-	console.log(context.list);
     res.render('workout', context);
   });
 });
@@ -115,8 +114,8 @@ app.post('/workout',function(req,res,next){
 app.post('/workoutupdate',function(req,res){
   var context = {
 		"list": [
-		{"id":""},
-		{"name":""}
+		{"id":[]},
+		{"name":[]}
   ]}
 		
  
