@@ -64,9 +64,11 @@ app.get('/workout',function(req,res,next){
       return;
     }
     context.list = JSON.stringify(rows);
+	console.log(context.list);
     res.render('workout', context);
   });
 });
+
 
 app.post('/workout',function(req,res,next){
   var context = {};
