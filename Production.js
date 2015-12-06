@@ -74,8 +74,8 @@ app.post('/workout',function(req,res,next){
   
   if(req.body['Add Item']){
 	  console.log("add item");
-	  console.log(req);
-	mysql.pool.query("INSERT INTO workouts (name,reps,weight,date,lbs) VALUES (?,?,?,?,?)", [req.query.name, req.query.reps, req.query.weight, req.query.date, req.query.lbs], function(err, result){
+	  console.log(req.body);
+	mysql.pool.query("INSERT INTO workouts (name,reps,weight,date,lbs) VALUES (?,?,?,?,?)", [req.body.name, req.body.reps, req.body.weight, req.body.date, req.body.lbs], function(err, result){
     if(err){
       next(err);
       return;
